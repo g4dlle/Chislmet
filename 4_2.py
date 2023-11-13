@@ -1,0 +1,12 @@
+from numpy import *
+from chol import decChol, detChol
+n = 4
+A = zeros((n,n))
+for i in range(n):
+    for j in range(n):
+        A[i,j] = 1/(i+1+j+1-1) #mistake in assignment, Gilbeth matrix 1/(i+j+1)
+print(f'A:\n{A}')
+L = decChol(A)
+print(f'L:\n{L}')
+det = detChol(A)
+print(f'det = {det}')
