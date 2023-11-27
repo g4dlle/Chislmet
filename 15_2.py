@@ -18,7 +18,7 @@ for i in range(1,n1):
         ut[i,j] = u(x[i], y[j], tEnd)
 tauList = [0.1, 0.05, 0.025]
 for tau in tauList:
-    t, U = parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau)
+    t, U = parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k)
     print(f'tau = {tau} erroe = {abs(np.amax(ut-U))}')
 fig = plt.figure()
 ax = Axes3D(fig)
