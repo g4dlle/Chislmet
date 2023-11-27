@@ -1,6 +1,6 @@
 import numpy as np
 from lu3 import solveLU3
-def parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau):
+def parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k):
     """
     Numerical Solution of the Dirichlet problem
     for two-demensional parabolic equation.
@@ -18,6 +18,11 @@ def parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau):
     q2 = np.zeros(n2+1)
     t0 = 0
     y0 = np.zeros((n1+1, n2+1))
+    for i in range(1,n1+1):
+        x  =i*h1
+        for j in range(1,n2+1):
+            y = j*h2
+            d1[i,j] = k(x-h1/2,y)
     for i in range(1,n1):
         for j in range(1,n2):
             y0[i,j] = v(i*h1, j*h2)
