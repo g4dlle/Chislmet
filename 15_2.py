@@ -7,6 +7,7 @@ l2 = 1
 def f(x, y, t): return x*(l1-x)*y*(l2-y)+2*t*(x*(l1-x)+y*(l2-y))
 def v(x, y): return 0
 def u(x, y, t): return t*x*(l1-x)*y*(l2-y)
+def k(a, b): return 1
 n1 = 50
 n2 = 50
 tEnd = 1
@@ -20,8 +21,7 @@ tauList = [0.1, 0.05, 0.025]
 for tau in tauList:
     t, U = parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k)
     print(f'tau = {tau} erroe = {abs(np.amax(ut-U))}')
-fig = plt.figure()
-ax = Axes3D(fig)
+fig, ax = plt.subplots(subplot_kw = {"projection":"3d"})
 X, Y = np.meshgrid(x, y)
-ax.plot_surface(X, Y, U, rstride=1, cstride=1)
+surf = ax.plot_surface(X, Y, U)
 plt.show()
