@@ -35,4 +35,4 @@ def parabolic1D(k, f, v, l, tEnd, n, tau, sigma):
         t0 = t0 + tau
         t.append(t0)
         y.append(y0)
-        return np.array(t), np.array(y)
+    return np.array(t), np.array(y)
