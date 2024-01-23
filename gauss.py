@@ -10,23 +10,6 @@ def gauss(f, a, b, n):
         return 0
     x = np.zeros((n))
     c = np.zeros((n))
-    """
-    nodes, weights = np.polynomial.legendre.leggauss(n)
-    if len(nodes) % 2 == 0:
-        for k in range(len(nodes) // 2):
-            x[k] = nodes[k]
-            x[-k-1] = -nodes[k]
-            c[k] = weights[k]
-            c[-k-1] = weights[k]
-    else:
-        for k in range(len(nodes) // 2):
-            x[k] = nodes[k]
-            x[-k-1] = -nodes[k]
-            c[k] = weights[k]
-            c[-k-1] = weights[k]
-        x[len(nodes) // 2 + 1] = 0
-        x[len(nodes) // 2 + 1] = weights[len(nodes) // 2 + 1]
-    """
     if n == 2:
         x[0] = 0.57735027
         x[1] = -x[0]
