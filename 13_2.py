@@ -14,12 +14,12 @@ sgList = ['-', '--', '-.', ':']
 k = 0
 for n in nList:
     x, y = fdm(v, f, mu1, mu2, a, b, n, 0)
-    sl = 'n =' + str(n) + ' (upwind)'
+    sl = 'n =' + str(n) + ' (направленные разности)'
     sg = sgList[k]
     k = k + 1
     plt.plot(x, y, sg, label=sl)
     x, y = fdm(v, f, mu1, mu2, a, b, n, 1)
-    sl = 'n =' + str(n) + ' (central)'
+    sl = 'n =' + str(n) + ' (центрально-разностная)'
     sg = sgList[k]
     k = k + 1
     plt.plot(x, y, sg, label=sl)

@@ -8,4 +8,4 @@ for n in range(2,9):
     I = gauss(f, a, b, n)
     print('n =', n, 'Integral =', I)
 Iexact = pi**2 / 6
-print('Exact value = ', Iexact)
+print('Точное значение = ', Iexact)

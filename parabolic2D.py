@@ -2,9 +2,9 @@ import numpy as np
 from lu3 import solveLU3
 def parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k):
     """
-    Numerical Solution of the Dirichlet problem
-    for two-demensional parabolic equation.
-    Use additive difference scheme of alternating directions.
+    Численное решение задачи Дирихле
+    для двумерного параболического уравнения.
+    Используется аддитивная разностная схема чередования направлений.
     """
     h1 = l1 / n1
     h2 = l2 / n2
@@ -27,7 +27,7 @@ def parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k):
     y = np.copy(y0)
     while t0 < tEnd * 0.001*tau:
         tau = min(tau, tEnd - t0)
-        # x1 direction
+        # x1 направление
         for j in range(1,n2):
             for i in range(1,n1):
                 b1[i] = -d1[i+1,j]/h1**2
@@ -35,7 +35,7 @@ def parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k):
                 a1[i] = 2/tau - b1[i] - c1[i]
                 q1[i] = 4*f(i*h1, j*h2, t0)/tau + 2*y[i,j]/tau + ((d2[i,j]/h2**2)*y[i,j-1] - ((d2[i,j+1]/h2**2) + (d2[i,j]/h2**2)) * y[i,j] + (d2[i,j+1]/h2**2) * y[i,j+1])
             y0[:,j] = solveLU3(a1, b1, c1, q1)
-        # x2 direction
+        # x2 направление
         for i in range(1,n1):
             for j in range(1,n2):
                 b2[j] = -d2[i,j+1]/h2**2

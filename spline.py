@@ -2,11 +2,11 @@ import numpy as np
 from lu3 import solveLU3
 def spline(x, y, c, x0):
     """
-    Evaluates cubic spline at x0.
+    Оценивает кубический сплайн в точке x0.
     """
     def find(x, x0):
         """
-        Find the segment spanning x0
+        Нахождение отрезока, охватывающий x0
         """
         iL = 0
         iR = len(x) - 1
@@ -25,7 +25,7 @@ def spline(x, y, c, x0):
     return y0
 def coefspline(x, y):
     """
-    Computes the coefficients of cubic spline.
+    Вычисление коэффициентов кубического сплайна.
     """
     n = len(x) - 1
     a = np.ones(n+1)

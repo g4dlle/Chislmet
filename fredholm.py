@@ -2,10 +2,10 @@ import numpy as np
 from lu import solveLU
 def fredholm(k, f, a, b, n):
     """
-    Solution Fredholm integral equation of the second kind.
-    k(x,s) is the kernel of the integral equation,
-    f(x) is the right part, 0 < x, s < b.
-    Method with trapezoidal quadrature formula.
+    Решение интегрального уравнения Фредгольма второго рода.
+    k(x,s) - ядро интегрального уравнения,
+    f(x) - правая часть, 0 < x, s < b.
+    Метод с квадратурной формулой трапеции.
     """
     h = (b - a) / n
     A = np.identity(n+1)
@@ -20,4 +20,3 @@ def fredholm(k, f, a, b, n):
         r[i] = f(x)
     y = solveLU(A,r)
     return y
-        

@@ -1,7 +1,7 @@
 from numpy import *
 def decLU(A):
     """
-    Returns the decomposition LU for matrix A.
+    Возвращает LU-разложение для матрицы A
     """
     n = len(A)
     LU = copy(A)
@@ -15,7 +15,7 @@ def decLU(A):
 
 def solveLU(A,f):
     """
-    Solve the linear system Ax = b.
+    Решение линейной системы Ax = b
     """
     n = len(A)
     LU = decLU(A)

@@ -1,7 +1,8 @@
 from numpy import *
 def seidel(A, f, tol = 1e-9):
     """
-    Solve the linear system Ax = b by Seidel method
+    Итерационное решение линейной системы Ax = b методом Зейделя
+    Возвращает приближенное решение и число итераций для необходимой точности
     """
     n = len(f)
     x = zeros(n)

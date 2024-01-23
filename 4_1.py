@@ -3,6 +3,7 @@ from lu import decLU, solveLU
 n = 10
 A = -ones((n,n))
 for i in range(0,n):
+    # заполнение матрицы
     A[i,i] = 1
     A[n-1,i] = 1
     if i < n-1:

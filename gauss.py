@@ -1,15 +1,15 @@
 import numpy as np
 def gauss(f, a, b, n):
     """
-    Integral of f(x) from a to b computed by
-    Gauss-Legendre quadrature using m nodes.
+    Интеграл f(x) от a до b, вычисленный с помощью 
+    квадратуры Гаусса-Лежандра с использованием m узлов.
     """
     if n > 8 or n < 2:
-        print('The number of nodes must be greater \
-              than 2 and less than 8')
+        print('Количество узлов должно быть больше чем 2 и меньше чем 8')
         return 0
     x = np.zeros((n))
     c = np.zeros((n))
+    # Ввод табличных значений
     if n == 2:
         x[0] = 0.57735027
         x[1] = -x[0]

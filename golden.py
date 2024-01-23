@@ -1,19 +1,20 @@
 from numpy import *
 def golden(f, a, b, tol = 1e-10):
     """
-    Gloden section method for determining x
-    that minimizes the scalar function f(x).
-    The minimum must be bracketed in(a,b).
+    Метод сечения Голдена для определения x
+    который минимизирует скалярную функцию f(x).
+    Обеспечивает нахождение минимума функции 
+    одной переменной на интервале [a,b].
+    Возвращает координаты минимума функции
     """
     c1 = (sqrt(5.) - 1.) / 2.
     c2 = 1. - c1
     nIt = int(ceil(log(tol / abs(b-a)) / log(c1)))
-    # First step
     x1 = c1*a + c2*b
     x2 = c2*a + c1*b
     f1 = f(x1)
     f2 = f(x2)
-    # Iteration
+    # Итерационное уточнение интевала
     for i in range(nIt):
         if f1 > f2:
             a = x1

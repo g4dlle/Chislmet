@@ -1,7 +1,8 @@
 from numpy import *
 def decChol(A):
     """
-    Returns the decomposition Choleski for matrix A.
+    Возвращает разложение Холецкого для матрицы A
+    (вычисляется нижняя треугольная матрица L)
     """
     n = len(A)
     L = copy(A)
@@ -17,7 +18,7 @@ def decChol(A):
     return L
 def detChol(A):
     """
-    Returns the determinant of the matrix A.
+    Возвращает определитель матрицы A
     """
     n = len(A)
     L = decChol(A)

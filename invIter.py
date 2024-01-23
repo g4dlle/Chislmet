@@ -2,9 +2,9 @@ from numpy import *
 from lu import decLU, solveLU
 def invIter(A, tol = 1.0e-6):
     '''
-    The inverse power method.
-    Returns the smallest eigenvalue and
-    the corresponding eigenvector.
+    Метод обратной мощности.
+    Возвращает минимальное собственное значение и
+    соответствующий собственный вектор.
     '''
     n = len(A)
     iterMax = 100
@@ -18,4 +18,4 @@ def invIter(A, tol = 1.0e-6):
         x= x / xNorn
         if sqrt(dot(x1-x, x1-x)) < tol:
             return 1 / xNorn, x
-    print('Method did not converge (100 iterations)')
+    print('Метод не сходится (100 итераций)')

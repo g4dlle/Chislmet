@@ -20,7 +20,7 @@ for i in range(1,n1):
 tauList = [0.1, 0.05, 0.025]
 for tau in tauList:
     t, U = parabolic2D(f, v, l1, l2, tEnd, n1, n2, tau, k)
-    print(f'tau = {tau} erroe = {abs(np.amax(ut-U))}')
+    print(f'tau = {tau} error = {abs(np.amax(ut-U))}')
 fig, ax = plt.subplots(subplot_kw = {"projection":"3d"})
 X, Y = np.meshgrid(x, y)
 surf = ax.plot_surface(X, Y, U)

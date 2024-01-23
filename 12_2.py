@@ -2,7 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from oneStep import oneStep
 def f(t, y):
-    f = np.zeros((2),'float')
+    # Ввод функции
+    f = np.zeros((2))
     f[0] = y[0] - y[0]*y[1]
     f[1] = -y[1] + y[0]*y[1]
     return f
@@ -12,6 +13,7 @@ y0 = np.array([2., 2. ])
 nTime = 50
 theta = 0.5
 t, y = oneStep(f, t0, y0, tEnd, nTime, theta)
+# Построение графика
 for n in range(0, 2):
     r = y [:, n]
     st = '$y_1$'

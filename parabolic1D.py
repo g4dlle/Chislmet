@@ -2,9 +2,9 @@ import numpy as np
 from lu3 import solveLU3
 def parabolic1D(k, f, v, l, tEnd, n, tau, sigma):
     """
-    Numerical Solution of the Dirichlet problem
-    for one-demensional parabolic equation.
-    Use two-layer scheme with the weight of sigma.
+    Численное решение задачи Дирихле
+    для одномерного параболического уравнения.
+    Используется двухслойная схема с весом сигма.
     """
     h = 1 / n
     a = np.ones(n+1)

@@ -2,11 +2,18 @@ import numpy as np
 from lu3 import solveLU3
 def fdm(v, f, mu1, mu2, a, b, n, p):
     """
-    Finite defference method for solving the Dirichlet problem
-    for the convection-diffusion equation.
-    When p = 0 we use the scheme with upwind
-    difference approximation,
-    when p = 1 - central-difference approximation.
+    Метод конечных разностей для решения задачи Дирихле
+    для уравнения конвекции-диффузии.
+    При p = 0 используется схема с направленными разностями,
+    при p = 1 - центрально-разностная аппроксимация.
+    v - v(x)
+    f - правая часть
+    mu1 - начало
+    mu2 - конец
+    a - u(0)
+    b - u(1)
+    n - количество точек
+    Возвращает точку и значение в точке
     """
     h = (b - a) / n
     x = np.linspace(a, b, n+1)

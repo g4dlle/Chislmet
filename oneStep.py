@@ -2,11 +2,13 @@ import numpy as np
 from newton import newton
 def oneStep(f, t0, y0, tEnd, nTime, theta):
     """
-    Solve the initial value problem y’ = f(t,y)
-    by one-step methods implisit method.
-    t0,y0 are the initial conditions,
-    tEnd is the terminal value of t,
-    nTime is the number of steps.
+    Решение задачи с начальным значением y' = f(t,y)
+    одношаговыми методами имплицитного метода.
+    t0,y0 - начальные условия
+    tEnd - конечное значение t
+    nTime - количество шагов
+    theta - шаг
+    Возвращает массив точек и значениий в точке
     """
     tau = (tEnd - t0) / nTime
     def f1(y1):

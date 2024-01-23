@@ -1,11 +1,11 @@
 from numpy import *
 def decLU3(a, b, c):
     """
-    Input of diagonal matrix A:
+    Ввод диагональной матрицы A:
         a[i] = A[i,i],
         b[i] = A[i,i+1],
         c[i] = A[i,i-1]
-    Returns the decomposition LU for tridiagonal matrix:
+    Возвращает LU-разложение для трехдиагональной матрицы:
         d[i] = L[i,i]
         u[i] = U[i,i+1]
         l[i] = L[i,i-1]
@@ -21,7 +21,7 @@ def decLU3(a, b, c):
     return d, u, l
 def solveLU3(a, b, c, f):
     """
-    Solve the linear system Ax = b with tridiagonal matrix:
+    Решение линейной системы Ax = b с трехдиагональной матрицей:
         a[i] = A[i,i],
         b[i] = A[i,i+1],
         c[i] = A[i,i-1]

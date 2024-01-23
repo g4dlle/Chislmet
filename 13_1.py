@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from shooting import shooting
-#метод стрельбы при приближенном решение краевой задачи основан на решении задач Коши для ур 1 порядка
 def f(x,y):
     f = np.zeros((2), 'float')
     f[0] = y[1]
@@ -15,14 +14,13 @@ theta1 = 0
 theta2 = 10
 nList = [5, 10, 100]
 sglist = ['-', '--', ':']
-#shooting() реализует решение краевой задачи на основе задач Коши
+# Построение графика
 for k in range(len(nList)):
     n = nList [k]
     x, y = shooting(f, mu1, mu2, a, b, n, theta1, theta2)
     sl = 'n=' + str(n)
     sg = sglist[k]
     plt.plot(x, y, sg, label=sl)
-#график
 plt.xlabel('x')
 plt.grid(True)
 plt.legend(loc=2)

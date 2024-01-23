@@ -1,14 +1,14 @@
 from numpy import *
 def bisection(f, x1, x2, tol = 1e-10):
     """
-    Finds  a root of f(x) = 0
-    between the arguments x1 and x2 by bisection
-    f(x1) and f(x2) can not have the same signs
+    Находит корень из f(x) = 0
+    между аргументами x1 и x2 методом бисекции
+    f(x1) и f(x2) не могут иметь одинаковые знаки
     """
     f1 = f(x1)
     f2 = f(x2)
     if f1*f2 > 0:
-        print("f(x1) and f(x2) can't have the same signs")
+        print("f(x1) и f(x2) имеют одинаковые знаки")
     n = int(ceil(log(abs(x2 - x1) / tol) / log(2.)))
     for i in range(n):
         x3 = 0.5 * (x1 + x2)

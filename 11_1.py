@@ -2,8 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from fredholm import fredholm
 def k(x,s):
+    # Ввод интегрального уравнения
     return 1 / (np.pi * (1 + (x - s) ** 2))
 def f(x):
+    # Правая часть уравнения
     return 1
 a = -1
 b = 1

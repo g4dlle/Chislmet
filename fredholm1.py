@@ -2,11 +2,11 @@ import numpy as np
 from cg import cg
 def fredholm1(k, f, a, b, n, tol = 1e-9):
     """
-    Solution Fredholm integral equation of the first kind.
-    k(x,s) is the kernel of the integral equation,
-    f(x) is the right part, 0 < x, s < b.
-    CG iteratibe method with
-    rectangle quadrature formula.
+    Решение интегрального уравнения Фредгольма первого рода.
+    k(x,s) - ядро интегрального уравнения,
+    f(x) - правая часть, 0 < x, s < b.
+    Метод итераций CG с
+    формулой прямоугольной квадратуры.
     """
     h = (b - a) / n
     A = np.zeros((n,n))
@@ -17,7 +17,7 @@ def fredholm1(k, f, a, b, n, tol = 1e-9):
         for j in range(n):
             s = a + h / 2 + j * h
             A[i,j] = k(x,s)*h
-    # Symmetrization
+    # Симметризация
     B = np.copy(A)
     rr = np.copy(r)
     for i in range(n):

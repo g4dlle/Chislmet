@@ -1,13 +1,14 @@
 from numpy import *
 def cg(A, f, tol = 1e-9):
     """
-    Solve the linear system Ax = b by conjugate gradient method
+    Решите линейную систему Ax = b методом сопряженного градиента
+    Возвращает приближенное решение и число итераций
     """
     n = len(f)
     x = zeros(n)
     r = copy(f)
     for i in range(n):
-        r[i] = dot(A[i,0:n], x[0:n]) -f[i]
+        r[i] = dot(A[i,0:n], x[0:n]) - f[i]
     s = copy(r)
     As = zeros(n)
     for k in range(n):

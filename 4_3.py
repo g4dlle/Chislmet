@@ -6,11 +6,11 @@ a = 2*ones(n)
 b = -ones(n)
 c = -ones(n)
 f = h**2*2*ones(n, dtype=float)
-# solution
+# решение
 x = solveLU3(a, b, c, f)
-# test function
+# матрица для тестирования
 y = zeros(n)
-# LU decomposition
+# LU-разложение
 d, u, l = decLU3(a, b, c)
 er = 0
 det = 1
@@ -21,4 +21,4 @@ for i in range(n):
     det = round(det, 10)
 er = sqrt(er)
 print(f'error = {er}')
-print(f'determinant calculated = {det}\nexact = {n+1}')
+print(f'вычисленный детерминант = {det}\nточно = {n+1}')

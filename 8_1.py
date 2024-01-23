@@ -2,6 +2,7 @@ from numpy import *
 import matplotlib.pyplot as plt
 from golden import golden
 def f(x):
+    # ВВод функции
     return (x**2 - 6*x + 12) / (x**2 + 6*x + 12)
 a = 0
 b = 20

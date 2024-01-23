@@ -1,6 +1,7 @@
 def trap(f, a, b, tol=1e-6):
     """
-    Integral of f(x) from a to b computed by trapizoidal rule
+    Возвращает приближенное значение интеграла f(x) от a до b,
+    ывычисленный по правилу трапеций
     """
     h = b - a
     Iold = h - (f(a) + f(b)) / 2

@@ -2,7 +2,7 @@ from numpy import *
 from lu import solveLU
 def jacobian(f, x):
     """
-    Calculation of the Jacobian using finite differences
+    Вычисление якобиана методом конечных разностей
     """
     h = 1e-4
     n = len(x)
@@ -17,9 +17,10 @@ def jacobian(f, x):
     return Jac, f0
 def newton(f, x, tol = 1e-9):
     """
-    Solves the system equations f(x) = 0 by
-    the Newton method using {x} as the initial guess
-    Solve th elinear system Ax = b by lu module
+    Решает систему уравнений f(x) = 0 методом Ньютона,
+    используя {x} в качестве начального предположения
+    Решает линейную систему Ax = b по модулю lu
+    Возвращает решение и количество итераций
     """
     iterMax = 50
     for i in range(iterMax):
@@ -28,4 +29,4 @@ def newton(f, x, tol = 1e-9):
             return x, i
         dx = solveLU(Jac, f0)
         x = x - dx
-    print('Too many iteratios for the Newton method')
+    print('Слишком много итераций для метода Ньютона')

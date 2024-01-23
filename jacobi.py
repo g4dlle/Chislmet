@@ -1,8 +1,8 @@
 import numpy as np
 def elemMax(A):
     '''
-    Find the largest (absolute value) off-diagonal element
-    A[k,1] in the upper half of A
+    Нахождение наибольшего (по абсолютной величине)
+    внедиагонального элемента A[k,l] в верхней половине A
     '''
     n = len(A)
     aMax = 0
@@ -13,9 +13,10 @@ def elemMax(A):
                 k = i
                 l = j
     return aMax, k, l
+
 def rotate(A, P, k, l):
     '''
-    Rotate of A to make A[k,l]
+    Поворот A, чтобы сделать A[k,l]
     '''
     n = len(A)
     d = A[l,l] - A[k,k]
@@ -29,7 +30,7 @@ def rotate(A, P, k, l):
     c = 1 / np.sqrt(1 + t**2)
     s = t*c
     tau = s / (1 + c)
-    # Modify the matrix elements
+    # Изменение элементов матрицы
     tt = A[k,l]
     A[k,l] = 0
     A[k,k] = A[k,k] - t*tt
@@ -46,25 +47,26 @@ def rotate(A, P, k, l):
         tt = A[k,i]
         A[k,i] = tt - s*(A[l,i] + tau*tt)
         A[l,i] = A[l,i] + s*(tt - tau*A[l,i])
-    # Update transformation matrix
+    # Обновление преобразованной матрицы
     for i in range(n):
         tt = P[i,k]
         P[i,k] = tt - s*(P[i,l] + tau*P[i,k])
         P[i,l] = P[i,l] + s*(tt - tau*P[i,l])
+
 def jacobi(A, tol = 1.0e-12):
     '''
-    Solution of eigenvalue problem by Jacobi’s method.
-    Returns eigenvalues in vector lam
-    and the eigenvectors as columns of matrix.
+    Решение задачи на собственные значения методом Якоби.
+    Возвращает собственные значения в виде вектора lam
+    и собственные векторы в виде столбцов матрицы.
     '''
     n = len(A)
-    # Number of rotations limit
+    # Ограничение количества оборотов
     rotMax = 5*(n**2)
     P = np.identity(n)
-    # Jacobi rotation loop
+    # Вращательный контур Якоби
     for i in range(rotMax) :
         aMax, k, l = elemMax(A)
         if aMax < tol:
             return np.diagonal(A), P
         rotate(A, P, k, l)
-    print('Jacobi method did not converge')
+    print('Метод Якоби не сходится')

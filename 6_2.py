@@ -10,4 +10,4 @@ for i in range(n):
             A[i,j] = (j+1)/(i+1)
 print(f'A:\n{A}')
 lam, x = jacobi(A)
-print('All eigenvalue:\n', lam)
+print('Все собственные значения:\n', lam)

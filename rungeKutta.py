@@ -1,11 +1,12 @@
 import numpy as np
 def rungeKutta(f,t0,y0,tEnd,tau):
     """
-    Solve the initial value problem y'=f(t,y)
-    by 4th-order Runge-Kutta method.
-    t0,y0 are the initial conditions
-    tEnd is the terminal value of t,
-    tau is the step.
+    Решение задачи с начальным значением y'=f(t,y)
+    методом Рунге-Кутты 4-го порядка.
+    t0, y0 - начальные условия
+    tEnd - конечное значение t
+    tau - шаг
+    Возвращает массив точек и значениий в точке
     """
     def increment(f, t, y, tau):
         k0 = tau * f(t,y)

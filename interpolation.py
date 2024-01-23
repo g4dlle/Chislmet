@@ -1,23 +1,24 @@
 def interpolation(c, x, x0):
     """
-    Evaluates Newton's polynomial at x0.
-    c: data points at x
-    x: data points at y
-    x0: evaluation point(s)
+    Оценивает полином Ньютона в узле x0.
+    c: данные в узле x
+    x: данные в узле y
+    x0: точка(ы) оценки
     """
-    # Degree of polynomial
+    # Степень полинома
     n = len(x) - 1
     y0 = c[n]
     for k in range(1, n+1):
         y0 = c[n-k] + (x0 - x[n-k]) * y0
     return y0
+
 def coef(x, y):
     """
-    Computes the coefficients of Newton's polynomial.
-    x: list or np array contanining x data points
-    y: list or np array contanining y data points
+    Вычисляет коэффициенты полинома Ньютона.
+    x: список или массив, содержащий данные в узле x
+    y: список или массив, содержащий данные в узле y
     """
-    # Number of data points
+    # Количество узлов
     m = len(x)
     c = y.copy()
     for k in range(1,m):
